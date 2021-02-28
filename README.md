@@ -3,6 +3,8 @@ Codes python pour automatiser les seuils. Polytech Nantes, projet transversal po
 
 ## ALGO : Balanced histogram tresholding
 
+## ALGO : Otsu 
+
 ## ALGO : Multi Otsu 
 
 Pour faire fonctionner l'algorithme il est important d'installer la librairie "scikit-image".
