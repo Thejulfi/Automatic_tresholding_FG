@@ -1,7 +1,9 @@
 # Automatic_tresholding_FG
 Codes python pour automatiser les seuils. Polytech Nantes, projet transversal pour l'entreprise Futura Gaïa. 
 
-## Multi Otsu 
+## ALGO : Balanced histogram tresholding
+
+## ALGO : Multi Otsu 
 
 Pour faire fonctionner l'algorithme il est important d'installer la librairie "scikit-image".
 
