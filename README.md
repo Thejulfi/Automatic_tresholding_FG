@@ -4,8 +4,8 @@ Codes python pour automatiser les seuils. Polytech Nantes, projet transversal po
 ## TODO
 
 - [ ] Ajouter algo de seuillagea manuel
-- [ ] Coder module indication_performance.py
-- [ ] Coder module variation_param.py
+- [ ] Coder module _indication_performance.py_
+- [ ] Coder module _variation_param.py_
 
 ## ALGO : Balanced histogram tresholding
 
