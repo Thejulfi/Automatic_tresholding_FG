@@ -35,6 +35,7 @@ ax[1].hist(image.ravel(), bins=255)
 ax[1].set_title('Histogram')
 for thresh in thresholds:
     ax[1].axvline(thresh, color='r')
+    ax[1].text(thresh + 3, 150,str(thresh),rotation=0, bbox=dict(facecolor='red', alpha=0.5), color='white', fontweight='bold')
 
 # Plotting the Multi Otsu result.
 ax[2].imshow(regions, cmap='Accent')

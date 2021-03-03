@@ -42,6 +42,7 @@ ax[0].axis('off')
 ax[1].hist(im_flat, bins=256, range=(0, 255))
 ax[1].set_title('Histogram')
 ax[1].axvline(thr, color='r')
+ax[1].text(thr + 3, 150,str(thr),rotation=0, bbox=dict(facecolor='red', alpha=0.5), color='white', fontweight='bold')
 
 ax[2].imshow(im > thr, cmap = 'gray')
 ax[2].set_title("Otsu result")
