@@ -33,11 +33,19 @@ for t in range(1,255):
 
 print("Threshold: {}".format(thr))
 
+fig, ax = plt.subplots(nrows=1, ncols=3, figsize=(10, 3.5))
 
-plt.subplot(131)
-plt.imshow(im, cmap = 'gray')
-plt.subplot(132)
-plt.hist(im_flat, bins=256, range=(0, 255))
-plt.subplot(133)
-plt.imshow(im > thr, cmap = 'gray')
+ax[0].imshow(im, cmap='gray')
+ax[0].set_title('Original')
+ax[0].axis('off')
+
+ax[1].hist(im_flat, bins=256, range=(0, 255))
+ax[1].set_title('Histogram')
+ax[1].axvline(thr, color='r')
+
+ax[2].imshow(im > thr, cmap = 'gray')
+ax[2].set_title("Otsu result")
+ax[2].axis('off')
+
+plt.subplots_adjust()
 plt.show()

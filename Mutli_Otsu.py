@@ -18,6 +18,8 @@ output = img_as_ubyte(regions)  #Convert 64 bit integer values to uint8
 
 #plt.imsave("Otsu_Segmented.jpg", output)
 
+for thr,i in enumerate(thresholds):
+    print("Threshold #{}: {}".format(thr,i))
 
 #Let us look at the input image, thresholds on thehistogram and final segmented image
 fig, ax = plt.subplots(nrows=1, ncols=3, figsize=(10, 3.5))
@@ -40,5 +42,4 @@ ax[2].set_title('Multi-Otsu result')
 ax[2].axis('off')
 
 plt.subplots_adjust()
-
 plt.show()
