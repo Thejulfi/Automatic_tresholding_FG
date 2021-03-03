@@ -6,12 +6,15 @@ from skimage import data, io, img_as_ubyte
 import cv2 as cv
 from matplotlib import pyplot as plt
 import numpy as np
+import pandas as pd
 
 def displaying_results(images, showR=0):
     algos = ['bht', 'mutli otsu', 'otsu']
-
+    thr_res = np.ndarray((4,1), int)
     for image in images:
         print("\n")
+        if (showR): fig, ax = plt.subplots(nrows=3, ncols=3, figsize=(10, 3.5), constrained_layout=True)
+        c=0
         for i in range(len(algos)):
             if (i==0):
                 # print('bht')
@@ -22,7 +25,7 @@ def displaying_results(images, showR=0):
                 # print('mutli otsu')
                 im = cv.imread(image, 0)
                 # im = io.imread(image,0)
-                # b,g,r = cv.split(im)
+                # b,g,r = cv.split(im)  
                 thr = threshold_multiotsu(im, classes=3)
                 regions = np.digitize(im, bins=thr)
                 output = img_as_ubyte(regions)  #Convert 64 bit integer values to uint8
@@ -33,38 +36,60 @@ def displaying_results(images, showR=0):
                 thr = Otsu.otsu(im)
 
             if(showR):
+<<<<<<< HEAD
                 fig, ax = plt.subplots(nrows=1, ncols=3, figsize=(10, 3.5))
 
                 ax[0].imshow(im, cmap='gray')
                 ax[0].set_title('Original {}'.format(algos[i]))
                 ax[0].axis('off')
+=======
+                
+                ax[i][0].imshow(im, cmap='gray')
+                ax[i][0].set_title('Original {}'.format(algos[i]))
+                ax[i][0].set_ylabel("test")
+                ax[i][0].axis('off')
+>>>>>>> origin/one_image
 
-                ax[1].hist(im.ravel(), bins=255)
-                ax[1].set_title('Histogram')
+                ax[i][1].hist(im.ravel(), bins=255)
+                ax[i][1].set_title('Histogram')
                 if(i==1):
                     for thresh in thr:
-                        ax[1].axvline(thresh, color='r')
-                        ax[1].text(thresh + 3, 150,str(thresh),rotation=0, bbox=dict(facecolor='red', alpha=0.5), color='white', fontweight='bold')
+                        ax[i][1].axvline(thresh, color='r')
+                        ax[i][1].text(thresh + 3, 150,str(thresh),rotation=0, bbox=dict(facecolor='red', alpha=0.5), color='white', fontweight='bold')
                 else:
-                    ax[1].axvline(thr, color='r')
-                    ax[1].text(thr + 3, 150,str(thr),rotation=0, bbox=dict(facecolor='red', alpha=0.5), color='white', fontweight='bold')
+                    ax[i][1].axvline(thr, color='r')
+                    ax[i][1].text(thr + 3, 150,str(thr),rotation=0, bbox=dict(facecolor='red', alpha=0.5), color='white', fontweight='bold')
 
                 if(i==1):
-                    ax[2].imshow(regions, cmap='Accent')
+                    ax[i][2].imshow(regions, cmap='Accent')
                 else:
-                    ax[2].imshow(im > thr, cmap = 'gray')
+                    ax[i][2].imshow(im > thr, cmap = 'gray')
                 
+<<<<<<< HEAD
                 ax[2].set_title('Result {}'.format(algos[i]))
                 ax[2].axis('off')
+=======
+                ax[i][2].set_title('Result {}'.format(algos[i]))
+                ax[i][2].axis('off')
+>>>>>>> origin/one_image
 
                 plt.subplots_adjust()
-                if(i==2):
-                    plt.show(block=True)
-                else:
-                    plt.show(block=False)
+                print(thr)
             else:
-                print("Treshold #{} = {}".format(algos[i],thr))
+                if(c ==1):
+                    thr_res.put(c, thr[0])
+                    c+=1
+                    thr_res.put(c, thr[1])
+                    c+=1
+                else:
+                    thr_res.put(c, thr)
+                    c+=1
 
-
+<<<<<<< HEAD
 my_images = ["data/J+12_PM_GA.jpg", "data/BSE.jpg"]
 displaying_results(my_images, 1)
+=======
+        if (showR): plt.show()
+        else:
+            return thr_res
+>>>>>>> origin/one_image
