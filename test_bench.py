@@ -36,7 +36,7 @@ def displaying_results(images, showR=0):
                 fig, ax = plt.subplots(nrows=1, ncols=3, figsize=(10, 3.5))
 
                 ax[0].imshow(im, cmap='gray')
-                ax[0].set_title('Original')
+                ax[0].set_title('Original {}'.format(algos[i]))
                 ax[0].axis('off')
 
                 ax[1].hist(im.ravel(), bins=255)
@@ -54,7 +54,7 @@ def displaying_results(images, showR=0):
                 else:
                     ax[2].imshow(im > thr, cmap = 'gray')
                 
-                ax[2].set_title("Result")
+                ax[2].set_title('Result {}'.format(algos[i]))
                 ax[2].axis('off')
 
                 plt.subplots_adjust()
@@ -67,4 +67,4 @@ def displaying_results(images, showR=0):
 
 
 my_images = ["data/J+12_PM_GA.jpg", "data/BSE.jpg"]
-displaying_results(my_images, 0)
+displaying_results(my_images, 1)
