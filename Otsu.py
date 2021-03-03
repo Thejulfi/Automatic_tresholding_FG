@@ -24,27 +24,27 @@ def otsu(im):
 
 
 
-image = cv2.imread("data/J+12_PM_GA.jpg",0)
-im_flat = np.reshape(image,(image.shape[0]*image.shape[1]))
+# image = cv2.imread("data/J+12_PM_GA.jpg",0)
+# im_flat = np.reshape(image,(image.shape[0]*image.shape[1]))
 
-thr = otsu(image)
+# thr = otsu(image)
 
-print("Threshold: {}".format(thr))
+# print("Threshold: {}".format(thr))
 
-fig, ax = plt.subplots(nrows=1, ncols=3, figsize=(10, 3.5))
+# fig, ax = plt.subplots(nrows=1, ncols=3, figsize=(10, 3.5))
 
-ax[0].imshow(image, cmap='gray')
-ax[0].set_title('Original')
-ax[0].axis('off')
+# ax[0].imshow(image, cmap='gray')
+# ax[0].set_title('Original')
+# ax[0].axis('off')
 
-ax[1].hist(im_flat, bins=256, range=(0, 255))
-ax[1].set_title('Histogram')
-ax[1].axvline(thr, color='r')
-ax[1].text(thr + 3, 150,str(thr),rotation=0, bbox=dict(facecolor='red', alpha=0.5), color='white', fontweight='bold')
+# ax[1].hist(image.ravel(), bins=255)
+# ax[1].set_title('Histogram')
+# ax[1].axvline(thr, color='r')
+# ax[1].text(thr + 3, 150,str(thr),rotation=0, bbox=dict(facecolor='red', alpha=0.5), color='white', fontweight='bold')
 
-ax[2].imshow(image > thr, cmap = 'gray')
-ax[2].set_title("Otsu result")
-ax[2].axis('off')
+# ax[2].imshow(image > thr, cmap = 'gray')
+# ax[2].set_title("Otsu result")
+# ax[2].axis('off')
 
-plt.subplots_adjust()
-plt.show()
+# plt.subplots_adjust()
+# plt.show()

@@ -7,7 +7,7 @@ def bht(im, min_count: int = 5):
 
     hist = cv.calcHist(im,[1],None,[256],[0,256])
     hist = hist.astype(int)
-    
+
     n_bins = len(hist)
     h_s = 0
 
@@ -57,41 +57,41 @@ def bht(im, min_count: int = 5):
 
     return h_c
 
-'''Chargement de l'image'''
-image = cv.imread("data/J+12_PM_GA.jpg",0)
+# '''Chargement de l'image'''
+# image = cv.imread("data/J+12_PM_GA.jpg",0)
 
-'''Création de l'histogramme'''
+# '''Création de l'histogramme'''
 
-'''Paramètre de départ pour bht'''
-weight_init = 50
+# '''Paramètre de départ pour bht'''
+# weight_init = 50
 
-'''Affichage du seuil trouvé'''
-# print(bht(histo, weight_init))
-thr = bht(image, weight_init)
+# '''Affichage du seuil trouvé'''
+# # print(bht(histo, weight_init))
+# thr = bht(image, weight_init)
 
 
-print("Threshold: {}".format(thr))
+# print("Threshold: {}".format(thr))
 
-#Let us look at the input image, thresholds on thehistogram and final segmented image
-fig, ax = plt.subplots(nrows=1, ncols=3, figsize=(10, 3.5))
+# #Let us look at the input image, thresholds on thehistogram and final segmented image
+# fig, ax = plt.subplots(nrows=1, ncols=3, figsize=(10, 3.5))
 
-# Plotting the original image.
-ax[0].imshow(image, cmap='gray')
-ax[0].set_title('Original')
-ax[0].axis('off')
+# # Plotting the original image.
+# ax[0].imshow(image, cmap='gray')
+# ax[0].set_title('Original')
+# ax[0].axis('off')
 
-# Plotting the histogram and the two thresholds obtained from
-# multi-Otsu.
-ax[1].hist(image.ravel(), bins=255)
-ax[1].set_title('Histogram')
-ax[1].axvline(thr, color='r')
-ax[1].text(thr + 3, 150,str(thr),rotation=0, bbox=dict(facecolor='red', alpha=0.5), color='white', fontweight='bold')
+# # Plotting the histogram and the two thresholds obtained from
+# # multi-Otsu.
+# ax[1].hist(image.ravel(), bins=255)
+# ax[1].set_title('Histogram')
+# ax[1].axvline(thr, color='r')
+# ax[1].text(thr + 3, 150,str(thr),rotation=0, bbox=dict(facecolor='red', alpha=0.5), color='white', fontweight='bold')
 
-# Plotting the original image.
-ax[2].imshow(image > thr, cmap='gray')
-ax[2].set_title('BHT result')
-ax[2].axis('off')
+# # Plotting the original image.
+# ax[2].imshow(image > thr, cmap='gray')
+# ax[2].set_title('BHT result')
+# ax[2].axis('off')
 
-plt.subplots_adjust()
+# plt.subplots_adjust()
 
-plt.show()
+# plt.show()
