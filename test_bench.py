@@ -65,8 +65,8 @@ def displaying_results(images, showR=0):
                 #     plt.show(block=False)
             else:
                 print("Treshold #{} = {}".format(algos[i],thr))
-        plt.show()
+        if (showR): plt.show()
 
 
-my_images = ["data/J+12_PM_GA.jpg"]
+my_images = ["data/J+12_PM_GA.jpg", "data/BSE.jpg"]
 displaying_results(my_images, 1)
