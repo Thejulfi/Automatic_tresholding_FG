@@ -12,7 +12,7 @@ def displaying_results(images, showR=0):
     algos = ['bht', 'mutli otsu', 'otsu']
     thr_res = np.ndarray((4,1), int)
     for image in images:
-        print("\n")
+
         if (showR): fig, ax = plt.subplots(nrows=3, ncols=3, figsize=(10, 3.5), constrained_layout=True)
         c=0
         for i in range(len(algos)):
@@ -72,5 +72,14 @@ def displaying_results(images, showR=0):
                     thr_res.put(c, thr)
                     c+=1
 
+<<<<<<< HEAD
 my_images = ["data/J+12_PM_GA.jpg", "data/BSE.jpg"]
 displaying_results(my_images, 1)
+=======
+        if (showR): plt.show()
+        else:
+            return thr_res
+
+my_images = ["data/J+12_PM_GA.jpg"]
+displaying_results(my_images, 1)
+>>>>>>> one_image
