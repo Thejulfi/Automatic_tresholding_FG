@@ -12,6 +12,7 @@ def displaying_results(images, showR=0):
 
     for image in images:
         print("\n")
+        fig, ax = plt.subplots(nrows=3, ncols=3, figsize=(10, 3.5), constrained_layout=True)
         for i in range(len(algos)):
             if (i==0):
                 # print('bht')
@@ -33,38 +34,39 @@ def displaying_results(images, showR=0):
                 thr = Otsu.otsu(im)
 
             if(showR):
-                fig, ax = plt.subplots(nrows=1, ncols=3, figsize=(10, 3.5))
+                
+                ax[i][0].imshow(im, cmap='gray')
+                ax[i][0].set_title('Original {}'.format(algos[i]))
+                ax[i][0].set_ylabel("test")
+                ax[i][0].axis('off')
 
-                ax[0].imshow(im, cmap='gray')
-                ax[0].set_title('Original')
-                ax[0].axis('off')
-
-                ax[1].hist(im.ravel(), bins=255)
-                ax[1].set_title('Histogram')
+                ax[i][1].hist(im.ravel(), bins=255)
+                ax[i][1].set_title('Histogram')
                 if(i==1):
                     for thresh in thr:
-                        ax[1].axvline(thresh, color='r')
-                        ax[1].text(thresh + 3, 150,str(thresh),rotation=0, bbox=dict(facecolor='red', alpha=0.5), color='white', fontweight='bold')
+                        ax[i][1].axvline(thresh, color='r')
+                        ax[i][1].text(thresh + 3, 150,str(thresh),rotation=0, bbox=dict(facecolor='red', alpha=0.5), color='white', fontweight='bold')
                 else:
-                    ax[1].axvline(thr, color='r')
-                    ax[1].text(thr + 3, 150,str(thr),rotation=0, bbox=dict(facecolor='red', alpha=0.5), color='white', fontweight='bold')
+                    ax[i][1].axvline(thr, color='r')
+                    ax[i][1].text(thr + 3, 150,str(thr),rotation=0, bbox=dict(facecolor='red', alpha=0.5), color='white', fontweight='bold')
 
                 if(i==1):
-                    ax[2].imshow(regions, cmap='Accent')
+                    ax[i][2].imshow(regions, cmap='Accent')
                 else:
-                    ax[2].imshow(im > thr, cmap = 'gray')
+                    ax[i][2].imshow(im > thr, cmap = 'gray')
                 
-                ax[2].set_title("Result")
-                ax[2].axis('off')
+                ax[i][2].set_title('Result {}'.format(algos[i]))
+                ax[i][2].axis('off')
 
                 plt.subplots_adjust()
-                if(i==2):
-                    plt.show(block=True)
-                else:
-                    plt.show(block=False)
+                # if(i==2):
+                #     plt.show(block=True)
+                # else:
+                #     plt.show(block=False)
             else:
                 print("Treshold #{} = {}".format(algos[i],thr))
+        plt.show()
 
 
-my_images = ["data/J+12_PM_GA.jpg", "data/BSE.jpg"]
-displaying_results(my_images, 0)
+my_images = ["data/J+12_PM_GA.jpg"]
+displaying_results(my_images, 1)
