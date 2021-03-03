@@ -1,7 +1,15 @@
 # Automatic_tresholding_FG
 Codes python pour automatiser les seuils. Polytech Nantes, projet transversal pour l'entreprise Futura Gaïa. 
 
+## TODO
+
+- [ ] Ajouter algo de seuillagea manuel
+- [ ] Coder module _indication_performance.py_
+- [ ] Coder module _variation_param.py_
+
 ## ALGO : Balanced histogram tresholding
+
+## ALGO : Otsu 
 
 ## ALGO : Multi Otsu 
 
