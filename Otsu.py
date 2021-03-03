@@ -11,7 +11,7 @@ import cv2
 from matplotlib import pyplot as plt
 
 
-im = cv2.imread("data/Stade_13_1.10.png",0)
+im = cv2.imread("data/J+12_PM_GA.jpg",0)
 im_flat = np.reshape(im,(im.shape[0]*im.shape[1]))
 
 [hist, _] = np.histogram(im, bins=256, range=(0, 255))

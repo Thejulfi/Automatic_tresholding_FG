@@ -55,7 +55,7 @@ def bht(hist, min_count: int = 5):
     return h_c
 
 '''Chargement de l'image'''
-image = cv.imread("data/Stade_13_1.10.png",0)
+image = cv.imread("data/J+12_PM_GA.jpg",0)
 
 '''Création de l'histogramme'''
 hist = cv.calcHist(image,[1],None,[256],[0,256])

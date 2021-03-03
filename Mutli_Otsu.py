@@ -5,7 +5,7 @@ from skimage import data, io, img_as_ubyte
 from skimage.filters import threshold_multiotsu
 
 # Read an image
-image = io.imread("data/BSE.jpg")
+image = io.imread("data/J+12_PM_GA.jpg")
 
 
 # Apply multi-Otsu threshold 
