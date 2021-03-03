@@ -36,19 +36,11 @@ def displaying_results(images, showR=0):
                 thr = Otsu.otsu(im)
 
             if(showR):
-<<<<<<< HEAD
                 fig, ax = plt.subplots(nrows=1, ncols=3, figsize=(10, 3.5))
 
                 ax[0].imshow(im, cmap='gray')
                 ax[0].set_title('Original {}'.format(algos[i]))
                 ax[0].axis('off')
-=======
-                
-                ax[i][0].imshow(im, cmap='gray')
-                ax[i][0].set_title('Original {}'.format(algos[i]))
-                ax[i][0].set_ylabel("test")
-                ax[i][0].axis('off')
->>>>>>> origin/one_image
 
                 ax[i][1].hist(im.ravel(), bins=255)
                 ax[i][1].set_title('Histogram')
@@ -65,13 +57,8 @@ def displaying_results(images, showR=0):
                 else:
                     ax[i][2].imshow(im > thr, cmap = 'gray')
                 
-<<<<<<< HEAD
                 ax[2].set_title('Result {}'.format(algos[i]))
                 ax[2].axis('off')
-=======
-                ax[i][2].set_title('Result {}'.format(algos[i]))
-                ax[i][2].axis('off')
->>>>>>> origin/one_image
 
                 plt.subplots_adjust()
                 print(thr)
@@ -85,11 +72,5 @@ def displaying_results(images, showR=0):
                     thr_res.put(c, thr)
                     c+=1
 
-<<<<<<< HEAD
 my_images = ["data/J+12_PM_GA.jpg", "data/BSE.jpg"]
 displaying_results(my_images, 1)
-=======
-        if (showR): plt.show()
-        else:
-            return thr_res
->>>>>>> origin/one_image
