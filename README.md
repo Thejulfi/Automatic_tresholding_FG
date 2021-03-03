@@ -1,15 +1,22 @@
 # Automatic_tresholding_FG
 Codes python pour automatiser les seuils. Polytech Nantes, projet transversal pour l'entreprise Futura Gaïa. 
 
-## TODO
-
-- [ ] Ajouter algo de seuillagea manuel
-- [ ] Coder module _indication_performance.py_
-- [ ] Coder module _variation_param.py_
-
 ## ALGO : Balanced histogram tresholding
 
+### Résulat et interprétation
+
+Voici le résultat de l'application de l'algorithme pour l'image `J+12_PM_GA.jpg`. À gauche c'est l'image originale, au milieu l'historigramme avec le seuil calculé par la l'algorithme avec un poids initial de 50, à droite, le masque qui en résulte.
+
+![Image résultat par défaut BHT](images/res_default_bht_weightint-50.png)
+
+
 ## ALGO : Otsu 
+
+### Résulat et interprétation
+
+Voici le résultat de l'application de l'algorithme pour l'image `J+12_PM_GA.jpg`. À gauche c'est l'image originale, au milieu l'historigramme avec le seuil calculé par la l'algorithme, à droite, le masque qui en résulte.
+
+![Image résultat par défaut Otsu](images/res_default_Otsu.png)
 
 ## ALGO : Multi Otsu 
 
@@ -21,4 +28,10 @@ Pour ce faire, il faut ajouter la librairie à l'environnement Anaconda désiré
 2. Redémarrer Anaconda
 3. Installer scikit-image dans votre environement
 
- ![installation scikit-image](images/scikit-installation.png) 
+![installation scikit-image](images/scikit-installation.png) 
+ 
+ ### Résulat et interprétation
+ 
+Voici le résultat de l'application de l'algorithme pour l'image `J+12_PM_GA.jpg`. À gauche c'est l'image originale, au milieu l'historigramme avec les seuils calculés par la l'algorithme, à droite, le masque qui en résulte.
+ 
+![Image résultat par défaut Otsu](images/res_default_multiOtsu.png)
