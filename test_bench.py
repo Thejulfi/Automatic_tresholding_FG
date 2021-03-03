@@ -13,7 +13,8 @@ def displaying_results(images, showR=0):
     thr_res = np.ndarray((4,1), int)
     for image in images:
 
-        if (showR): fig, ax = plt.subplots(nrows=3, ncols=3, figsize=(10, 3.5), constrained_layout=True)
+        if (showR):
+            fig, ax = plt.subplots(nrows=3, ncols=3, figsize=(10, 3.5), constrained_layout=True)
         c=0
         for i in range(len(algos)):
             if (i==0):
@@ -72,9 +73,10 @@ def displaying_results(images, showR=0):
                     thr_res.put(c, thr)
                     c+=1
 
-        if (showR): plt.show()
+        if (showR):
+            plt.show()
         else:
             return thr_res
 
-my_images = ["data/J+12_PM_GA.jpg"]
-displaying_results(my_images, 1)
+# my_images = ["data/J+12_PM_GA.jpg"]
+# displaying_results(my_images, 1)
