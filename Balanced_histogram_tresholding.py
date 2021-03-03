@@ -3,8 +3,11 @@ import cv2 as cv
 from matplotlib import pyplot as plt
 
 #seuil automatique par la méthode BHT.
-def bht(hist, min_count: int = 5):
-    """Balanced histogram thresholding."""
+def bht(im, min_count: int = 5):
+
+    hist = cv.calcHist(im,[1],None,[256],[0,256])
+    hist = hist.astype(int)
+    
     n_bins = len(hist)
     h_s = 0
 
@@ -58,15 +61,13 @@ def bht(hist, min_count: int = 5):
 image = cv.imread("data/J+12_PM_GA.jpg",0)
 
 '''Création de l'histogramme'''
-hist = cv.calcHist(image,[1],None,[256],[0,256])
-hist = hist.astype(int)
 
 '''Paramètre de départ pour bht'''
 weight_init = 50
 
 '''Affichage du seuil trouvé'''
 # print(bht(histo, weight_init))
-thr = bht(hist, weight_init)
+thr = bht(image, weight_init)
 
 
 print("Threshold: {}".format(thr))

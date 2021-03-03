@@ -7,7 +7,7 @@ from skimage.filters import threshold_multiotsu
 
 # Read an image
 image = io.imread("data/J+12_PM_GA.jpg")
-b,g,r = cv.split(image)
+b,g,r = cv.split(im)
 
 # Apply multi-Otsu threshold 
 thresholds = threshold_multiotsu(g, classes=3)
