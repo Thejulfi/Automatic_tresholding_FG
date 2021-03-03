@@ -62,7 +62,7 @@ hist = cv.calcHist(image,[1],None,[256],[0,256])
 hist = hist.astype(int)
 
 '''Paramètre de départ pour bht'''
-weight_init = 20
+weight_init = 50
 
 '''Affichage du seuil trouvé'''
 # print(bht(histo, weight_init))
@@ -88,7 +88,7 @@ ax[1].text(thr + 3, 150,str(thr),rotation=0, bbox=dict(facecolor='red', alpha=0.
 
 # Plotting the original image.
 ax[2].imshow(image > thr, cmap='gray')
-ax[2].set_title('Original')
+ax[2].set_title('BHT result')
 ax[2].axis('off')
 
 plt.subplots_adjust()
