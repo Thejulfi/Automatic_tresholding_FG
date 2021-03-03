@@ -9,7 +9,7 @@ import numpy as np
 
 def displaying_results(images, showR=0):
     algos = ['bht', 'mutli otsu', 'otsu']
-
+    thr_res = np.ndarray((3,1), int)
     for image in images:
         print("\n")
         fig, ax = plt.subplots(nrows=3, ncols=3, figsize=(10, 3.5), constrained_layout=True)
@@ -23,7 +23,7 @@ def displaying_results(images, showR=0):
                 # print('mutli otsu')
                 im = cv.imread(image, 0)
                 # im = io.imread(image,0)
-                # b,g,r = cv.split(im)
+                # b,g,r = cv.split(im)  
                 thr = threshold_multiotsu(im, classes=3)
                 regions = np.digitize(im, bins=thr)
                 output = img_as_ubyte(regions)  #Convert 64 bit integer values to uint8
@@ -59,14 +59,14 @@ def displaying_results(images, showR=0):
                 ax[i][2].axis('off')
 
                 plt.subplots_adjust()
-                # if(i==2):
-                #     plt.show(block=True)
-                # else:
-                #     plt.show(block=False)
             else:
-                print("Treshold #{} = {}".format(algos[i],thr))
+                thr_res.put(i, thr)
+                
         if (showR): plt.show()
+        else:
+            return thr_res
 
 
-my_images = ["data/J+12_PM_GA.jpg", "data/BSE.jpg"]
+
+my_images = ["data/J+12_PM_GA.jpg"]
 displaying_results(my_images, 1)
