@@ -6,13 +6,15 @@ from skimage import data, io, img_as_ubyte
 import cv2 as cv
 from matplotlib import pyplot as plt
 import numpy as np
+import pandas as pd
 
 def displaying_results(images, showR=0):
     algos = ['bht', 'mutli otsu', 'otsu']
-    thr_res = np.ndarray((3,1), int)
+    thr_res = np.ndarray((4,1), int)
     for image in images:
         print("\n")
-        fig, ax = plt.subplots(nrows=3, ncols=3, figsize=(10, 3.5), constrained_layout=True)
+        if (showR): fig, ax = plt.subplots(nrows=3, ncols=3, figsize=(10, 3.5), constrained_layout=True)
+        c=0
         for i in range(len(algos)):
             if (i==0):
                 # print('bht')
@@ -59,14 +61,17 @@ def displaying_results(images, showR=0):
                 ax[i][2].axis('off')
 
                 plt.subplots_adjust()
+                print(thr)
             else:
-                thr_res.put(i, thr)
-                
+                if(c ==1):
+                    thr_res.put(c, thr[0])
+                    c+=1
+                    thr_res.put(c, thr[1])
+                    c+=1
+                else:
+                    thr_res.put(c, thr)
+                    c+=1
+
         if (showR): plt.show()
         else:
             return thr_res
-
-
-
-my_images = ["data/J+12_PM_GA.jpg"]
-displaying_results(my_images, 1)
