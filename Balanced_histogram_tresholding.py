@@ -6,7 +6,7 @@ from matplotlib import pyplot as plt
 def bht(im, min_count: int = 5):
 
     hist = cv.calcHist(im,[1],None,[256],[0,256])
-    hist = hist.astype(int)
+    # hist = hist.astype(int)
 
     n_bins = len(hist)
     h_s = 0
