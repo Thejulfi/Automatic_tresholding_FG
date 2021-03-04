@@ -64,7 +64,7 @@ def displaying_results(images, showR=0):
 
                 plt.subplots_adjust()
                 print(thr)
-            else:
+            # else:
                 if(c ==1):
                     thr_res.put(c, thr[0])
                     c+=1
@@ -78,8 +78,8 @@ def displaying_results(images, showR=0):
 
         if (showR):
             plt.show()
-        else:
-            return thr_res
+        # else:
+        return thr_res
 def output_algos(thresholds, im):
     output = []
     for i in thresholds:
@@ -98,8 +98,7 @@ def pixels_ratio(img_ref, img):
 my_images = ["data/J+12_PM_GA.jpg"]
 im = cv.imread(my_images[0],0)
 
-
-result_algos = displaying_results(my_images, 0)
+result_algos = displaying_results(my_images, 1)
 
 output_images = output_algos(result_algos, im)
 
