@@ -11,6 +11,7 @@ import pandas as pd
 def displaying_results(images, showR=0):
     algos = ['bht', 'mutli otsu', 'otsu']
     thr_res = np.ndarray((4,1), int)
+    # X_data = []
     for image in images:
 
         if (showR):
@@ -20,6 +21,7 @@ def displaying_results(images, showR=0):
             if (i==0):
                 # print('bht')
                 im = cv.imread(image,0)
+                b,g,r = cv.split(cv.imread(image))
                 weight_init = 50
                 thr = Balanced_histogram_tresholding.bht(im, weight_init)
             elif (i==1):
@@ -64,6 +66,7 @@ def displaying_results(images, showR=0):
                 plt.subplots_adjust()
                 print(thr)
             else:
+
                 if(c ==1):
                     thr_res.put(c, thr[0])
                     c+=1
@@ -72,11 +75,27 @@ def displaying_results(images, showR=0):
                 else:
                     thr_res.put(c, thr)
                     c+=1
+                # print(len(b*(im>thr)))
+                # test = im>thr
+                # image_final = cv.merge(((b * test), (g*test),(r*test)))
+                # X_data.append(im>)
 
         if (showR):
             plt.show()
         else:
             return thr_res
 
-# my_images = ["data/J+12_PM_GA.jpg"]
-# displaying_results(my_images, 1)
+            
+
+
+my_images = ["data/J+12_PM_GA.jpg"]
+
+# image = cv.imread(my_images[0])
+# b,g,r = cv.split(image)
+
+test = displaying_results(my_images, 0)
+
+# image_final = cv.merge(((b * test), (g*test),(r*test)))
+
+plt.imshow(test[0])
+plt.show()
