@@ -11,7 +11,7 @@ import pandas as pd
 def displaying_results(images, showR=0):
     algos = ['bht', 'mutli otsu', 'otsu']
     thr_res = np.ndarray((4,1), int)
-    # X_data = []
+    masks = []
     for image in images:
 
         if (showR):
@@ -21,7 +21,6 @@ def displaying_results(images, showR=0):
             if (i==0):
                 # print('bht')
                 im = cv.imread(image,0)
-                b,g,r = cv.split(cv.imread(image))
                 weight_init = 50
                 thr = Balanced_histogram_tresholding.bht(im, weight_init)
             elif (i==1):
@@ -66,7 +65,6 @@ def displaying_results(images, showR=0):
                 plt.subplots_adjust()
                 print(thr)
             else:
-
                 if(c ==1):
                     thr_res.put(c, thr[0])
                     c+=1
@@ -75,27 +73,35 @@ def displaying_results(images, showR=0):
                 else:
                     thr_res.put(c, thr)
                     c+=1
-                # print(len(b*(im>thr)))
-                # test = im>thr
-                # image_final = cv.merge(((b * test), (g*test),(r*test)))
-                # X_data.append(im>)
+
+                # masks.append((im > thr))
 
         if (showR):
             plt.show()
         else:
             return thr_res
+def output_algos(thresholds, im):
+    output = []
+    for i in thresholds:
+        output.append((im>i)*im)
+    return output
 
-            
 
+def comptage_pixels(img):
+    compteur = np.sum(img!= 0)
+    return compteur
+    
+def pixels_ratio(img_ref, img):
+    ratio = comptage_pixels(img) / comptage_pixels(img_ref)
+    return ratio
 
 my_images = ["data/J+12_PM_GA.jpg"]
+im = cv.imread(my_images[0],0)
 
-# image = cv.imread(my_images[0])
-# b,g,r = cv.split(image)
 
-test = displaying_results(my_images, 0)
+result_algos = displaying_results(my_images, 0)
 
-# image_final = cv.merge(((b * test), (g*test),(r*test)))
+output_images = output_algos(result_algos, im)
 
-plt.imshow(test[0])
-plt.show()
+print("Ratio pixels pour BHT : {}".format(pixels_ratio(im, output_images[0])))
+print("Ratio pixels pour Otsu : {}".format(pixels_ratio(im, output_images[3])))
