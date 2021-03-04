@@ -103,10 +103,9 @@ def comptage_pixels(img_ref,img):
     ratio = np.sum(img!= 0) / np.sum(img_ref!= 0)
     return ratio
     
-# '''Test pour la canal vert'''
-
 im_graal = cv.imread("data/Graal_J+12_PM_GA.jpg", 0)
 
+# '''Test pour la canal vert'''
 
 # image = cv.imread('data/J+12_PM_GA.jpg')
 
