@@ -10,6 +10,6 @@ La première fonction que contient ce fichier est _display_results_. Cette derni
 
 La seconde fonction applique les seuils trouvés pour la méthode **BHT** et **Otsu** à l'image de départ (celle qui a permise de calculer les seuils).
 
-![Principe de fonction output algos](images/output_algos_function.png.png)
+![Principe de fonction output algos](images/output_algos_function.png)
 
 ### Résultats et interprétation 
