@@ -8,8 +8,8 @@ La première fonction que contient ce fichier est _display_results_. Cette derni
 
 ![Principe de fonction display_results](images/display_results_function.png)
 
-La seconde fonction applique les seuils trouvés pour la méthode **BHT** et **Otsu** à l'image de départ (celle qui a permise de calculer les seuils).
+La seconde fonction applique les seuils trouvés pour la méthode **BHT** et **Otsu** à l'image de départ.
 
 ![Principe de fonction output algos](images/output_algos_function.png)
 
-### Résultats et interprétation 
+
