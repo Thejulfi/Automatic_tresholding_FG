@@ -12,4 +12,6 @@ La seconde fonction applique les seuils trouvés pour la méthode **BHT** et **O
 
 ![Principe de fonction output algos](images/output_algos_function.png)
 
+La dernière fonction permet de comparer les résultats du seuillage par rapport à une image de référence. Pour ce faire, elle compte le nombre de pixels non noir de l'image de référence et le divise par le nombre de pixels non noir de l'image seuillée (généralement issue de la fonction précédente).
 
+![Principe de fonction comptage pixels](images/comptage_pixels_function.png)
