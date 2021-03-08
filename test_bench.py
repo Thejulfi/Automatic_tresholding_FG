@@ -140,5 +140,5 @@ hue,sat,val = cv.split(hsv)
 result_algos = displaying_results(hue, 1) 
 output_images = output_algos(result_algos, hue)
 
-print("Ratio pixels pour BHT : {}".format(comptage_pixels(  )))
 print("Ratio pixels pour Otsu : {}".format(comptage_pixels(im_graal, output_images[3])))
+#commentaire nul
