@@ -1,8 +1,8 @@
 # Automatic_tresholding_FG
 
-## test_bench.py
+## I. test_bench.py
 
-### Principe de fonctionnement
+### I.1 Principe de fonctionnement
 
 Le banc de test est là pour appliquer les algorithmes de seuillage automatique.
 
@@ -18,11 +18,13 @@ La dernière fonction permet de comparer les résultats du seuillage par rapport
 
 ![Principe de fonction comptage pixels](images/comptage_pixels_function.png)
 
-### Fonctionnement
+### I.2 Fonctionnement
 
-La fonction **displaying_results** s'utilise selon les deux arguments suivant : 
+**I.2.1 Displaying results**
+
+La fonction displaying_results s'utilise selon les deux arguments suivant : 
 1. im : Une image en niveau de gris,
-2. . showR : Un booléen, vrai pour afficher les résultats à l'écran (avec MatPlotLib), Faux pour ne rien afficher.
+2. showR : Un booléen, vrai pour afficher les résultats à l'écran (avec MatPlotLib), Faux pour ne rien afficher.
 
 Prenons l'exemple d'une image préalablement divisé en canaux HSV. En appliquant la fonction sur le canal *Hue* avec le paramètre *ShowR* à 0, voici ce que nous obtenons.
 
@@ -30,10 +32,29 @@ Prenons l'exemple d'une image préalablement divisé en canaux HSV. En appliquan
 
 ![fonction displaying results sur canal hue](images/displaying_results_hue.png)
 
-Si on décide de retirer cet affichage, on obtient seulement le tableau des seuils comme indiqué dans la section sur le principe de fonctionnement.
+Si l’on décide de retirer cet affichage, on obtient seulement le tableau des seuils comme indiqué dans la section sur le principe de fonctionnement.
 
 `displaying_results(hue, 0)`
 
-### Tests
+**I.2.2 output_algos**
 
-Avec le banc de test on peut tester les images une par une pour les différents algorithme.
+La fonction output_algos s'utilise selon les deux arguments suivant : 
+1. treshold_array : Un tableau des seuils, ceux-ci son retournés par la fonction displaying_results,
+2. img : Une image en niveau de gris, généralement la même que celle mise en argument.
+
+Cette fonction va venir appliquer un masque généré par les seuils à l'image mise en argument.
+
+![fonction output algos resultat](images/image_seuillee_BHT.png)
+
+`output_algos(arr_treshs, hue)`
+
+**I.2.3 comptage_pixels**
+
+La fonction comptage_pixels s'utilise selon les deux arguments suivant : 
+1. img_ref : Une image de référence seuilée manuellement (photo montage) qui représente le seuillage parfait,
+2. img : Les images seuillées automatiques, généralement elles sont issues de la fonction output_algos.
+
+Cette fonction va venir comparer le nombre de pixels de l'image de référence par rapport à l'image qui a été seuillée automatique par les algorithmes. Plus le résultat est proche de 1, plus ce dernier sera considéré satisfaisant, toute proportion gardée.
+
+Résultat obtenue pour l'image obtenu précédemment : `Ratio pixels pour Otsu : 1.046019688467819`
+
