@@ -48,3 +48,5 @@ def otsu(im):
 
 # plt.subplots_adjust()
 # plt.show()
+
+print("ttttttttttttttttttt")
