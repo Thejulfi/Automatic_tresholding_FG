@@ -50,4 +50,4 @@ def otsu(im):
 # plt.show()
 
 print("cc")
-print("cc bg")
+print("cc bg, synchronise là!!!")
