@@ -2,12 +2,12 @@
 
 ## Sommaire
 
-- [I. test_bench.py](#i.-test_bench.py)
-  * [I.1.Principe de fonctionnement](#i.1.-Principe-de-fonctionnement)
-  * [I.2 Fonctionnement](#i.2-Fonctionnement)
-- [II. Balanced_histogram_tresholding.py](#ii.-Balanced_histogram_tresholding.py)
-- [III. Mutli_Otsu.py](#iii.-Mutli_Otsu.py)
-- [IV. Otsu.py](#iv.-Otsu.py)
+- [I. test_bench.py](#i-test_bench.py)
+  * [I.1.Principe de fonctionnement](#i1-Principe-de-fonctionnement)
+  * [I.2 Fonctionnement](#i2-Fonctionnement)
+- [II. Balanced_histogram_tresholding.py](#ii-Balanced_histogram_tresholding.py)
+- [III. Mutli_Otsu.py](#iii-Mutli_Otsu.py)
+- [IV. Otsu.py](#iv-Otsu.py)
 
 
 ## I test_bench.py
