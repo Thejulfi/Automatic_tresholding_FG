@@ -58,3 +58,10 @@ Cette fonction va venir comparer le nombre de pixels de l'image de référence p
 
 Résultat obtenue pour l'image obtenu précédemment : `Ratio pixels pour Otsu : 1.046019688467819`
 
+## II. Balanced_histogram_tresholding.py
+
+## III. Mutli_Otsu.py
+
+## IV. Otsu.py
+
+
