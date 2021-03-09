@@ -28,7 +28,7 @@ Prenons l'exemple d'une image préalablement divisé en canaux HSV. En appliquan
 
 `displaying_results(hue, 0)`
 
-![fonction displaying results sur canal hue](images/display_results_hue.png)
+![fonction displaying results sur canal hue](images/display_results_function.png)
 
 ### Tests
 
