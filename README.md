@@ -1,8 +1,13 @@
 # Automatic_tresholding_FG
 
+## Sommaire
+
+- [I. test_bench.py](## I. test_bench.py)
+
+
 ## I. test_bench.py
 
-### I.1 Principe de fonctionnement
+### I.1.Principe de fonctionnement
 
 Le banc de test est là pour appliquer les algorithmes de seuillage automatique.
 
