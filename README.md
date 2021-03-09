@@ -26,10 +26,14 @@ La fonction **displaying_results** s'utilise selon les deux arguments suivant :
 
 Prenons l'exemple d'une image préalablement divisé en canaux HSV. En appliquant la fonction sur le canal *Hue* avec le paramètre *ShowR* à 0, voici ce que nous obtenons.
 
-`displaying_results(hue, 0)`
+`displaying_results(hue, 1)`
 
-![fonction displaying results sur canal hue](images/display_results_function.png)
+![fonction displaying results sur canal hue](images/displaying_results_hue.png)
+
+Si on décide de retirer cet affichage, on obtient seulement le tableau des seuils comme indiqué dans la section sur le principe de fonctionnement.
+
+`displaying_results(hue, 0)`
 
 ### Tests
 
-Avec le banc de test on peut tester les images une par une pour les différents algorithme. 
+Avec le banc de test on peut tester les images une par une pour les différents algorithme.
