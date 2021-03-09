@@ -137,7 +137,7 @@ image = cv.imread('data/J+12_PM_GA.jpg')
 hsv = cv.cvtColor(image,cv.COLOR_BGR2HSV)
 hue,sat,val = cv.split(hsv)
 
-result_algos = displaying_results(hue, 1) 
+result_algos = displaying_results(hue, 0) 
 output_images = output_algos(result_algos, hue)
 
 print("Ratio pixels pour Otsu : {}".format(comptage_pixels(im_graal, output_images[3])))
