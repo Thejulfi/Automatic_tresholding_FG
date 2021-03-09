@@ -3,11 +3,16 @@
 ## Sommaire
 
 - [I. test_bench.py](#I.-test_bench.py)
+  * [I.1.Principe de fonctionnement](#I.1.-Principe-de-fonctionnement)
+  * [I.2 Fonctionnement](#I.2-Fonctionnement)
+- [II. Balanced_histogram_tresholding.py](#II.-Balanced_histogram_tresholding.py)
+- [III. Mutli_Otsu.py](#III.-Mutli_Otsu.py)
+- [IV. Otsu.py](#IV.-Otsu.py)
 
 
 ## I test_bench.py
 
-### I.1.Principe de fonctionnement
+### I.1. Principe de fonctionnement
 
 Le banc de test est là pour appliquer les algorithmes de seuillage automatique.
 
