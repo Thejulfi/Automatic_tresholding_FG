@@ -50,3 +50,4 @@ def otsu(im):
 # plt.show()
 
 print("ttttttttttttttttttt")
+print("cc")
