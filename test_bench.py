@@ -21,7 +21,7 @@ def displaying_results(im, showR=0):
         if (i==0):
             # print('bht')
             # im = cv.imread(image,0)
-            weight_init = 50
+            weight_init = 90
             thr = Balanced_histogram_tresholding.bht(im, weight_init)
         elif (i==1):
             # print('mutli otsu')
@@ -102,43 +102,48 @@ def compare_hist(img_ref, img):
 def comptage_pixels(img_ref,img):
     ratio = np.sum(img!= 0) / np.sum(img_ref!= 0)
     return ratio
+
     
 im_graal = cv.imread("data/Graal_J+12_PM_GA.jpg", 0)
 
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # '''Test pour la canal vert'''
 
-# image = cv.imread('data/J+12_PM_GA.jpg')
+image = cv.split(cv.imread('data/J+12_PM_GA.jpg'))[1]
 
-# b,g,r = cv.split(image)
-
-# result_algos = displaying_results(g, 1)
-# output_images = output_algos(result_algos, g)
-
-# print("Ratio pixels pour BHT : {}".format(comptage_pixels(im_graal, output_images[1])))
-# print("Ratio pixels pour Otsu : {}".format(comptage_pixels(im_graal, output_images[3])))
-
-'''Test en grayscale'''
-
-# im_graal = cv.imread("data/pearlite.tif", 0)
-
-image = cv.imread('data/J+12_PM_GA.jpg', 1)
 
 result_algos = displaying_results(image, 1)
+output_images = output_algos(result_algos, image)
+
+print("Ratio pixels pour BHT : {}".format(comptage_pixels(im_graal, output_images[1])))
+print("Ratio pixels pour Otsu : {}".format(comptage_pixels(im_graal, output_images[3])))
+
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+'''Test en grayscale'''
+
+# im_graal = cv.imread("data", 0)
+
+# image = cv.imread('data/J+12_PM_GA.jpg',cv.IMREAD_GRAYSCALE)
+
+# result_algos = displaying_results(image, 1)
 # output_images = output_algos(result_algos, image)
 
 # print("Ratio pixels pour BHT : {}".format(comptage_pixels(im_graal, output_images[1])))
 # print("Ratio pixels pour Otsu : {}".format(comptage_pixels(im_graal, output_images[3])))
 
-
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # '''Test avec canal Hue'''
 
-# image = cv.imread('data/pearlite.tif')
+# image = cv.imread('data/J+12_PM_GA.jpg')
 
 
 # hsv = cv.cvtColor(image,cv.COLOR_BGR2HSV)
-# hue,sat,val = cv.split(hsv)
+# hue = (cv.split(cv.cvtColor(cv.imread('data/J+12_PM_GA.jpg'),cv.COLOR_BGR2HSV)))[0]
 
-# result_algos = displaying_results(hue, 0) 
+# result_algos = displaying_results(hue, 1) 
 # output_images = output_algos(result_algos, hue)
 
 # print("Ratio pixels pour Otsu : {}".format(comptage_pixels(im_graal, output_images[3])))
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
