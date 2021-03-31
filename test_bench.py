@@ -117,27 +117,28 @@ im_graal = cv.imread("data/Graal_J+12_PM_GA.jpg", 0)
 # print("Ratio pixels pour BHT : {}".format(comptage_pixels(im_graal, output_images[1])))
 # print("Ratio pixels pour Otsu : {}".format(comptage_pixels(im_graal, output_images[3])))
 
-# '''Test en grayscale'''
+'''Test en grayscale'''
 
-# im_graal = cv.imread("data/Graal_J+12_PM_GA.jpg", 0)
+# im_graal = cv.imread("data/pearlite.tif", 0)
 
-# image = cv.imread('data/J+12_PM_GA.jpg', 0)
+image = cv.imread('data/J+12_PM_GA.jpg', 1)
 
-# result_algos = displaying_results(image, 1)
+result_algos = displaying_results(image, 1)
 # output_images = output_algos(result_algos, image)
 
 # print("Ratio pixels pour BHT : {}".format(comptage_pixels(im_graal, output_images[1])))
 # print("Ratio pixels pour Otsu : {}".format(comptage_pixels(im_graal, output_images[3])))
 
 
-'''Test avec canal Hue'''
+# '''Test avec canal Hue'''
 
-image = cv.imread('data/J+12_PM_GA.jpg')
+# image = cv.imread('data/pearlite.tif')
 
-hsv = cv.cvtColor(image,cv.COLOR_BGR2HSV)
-hue,sat,val = cv.split(hsv)
 
-result_algos = displaying_results(hue, 1) 
-output_images = output_algos(result_algos, hue)
+# hsv = cv.cvtColor(image,cv.COLOR_BGR2HSV)
+# hue,sat,val = cv.split(hsv)
 
-print("Ratio pixels pour Otsu : {}".format(comptage_pixels(im_graal, output_images[3])))
+# result_algos = displaying_results(hue, 0) 
+# output_images = output_algos(result_algos, hue)
+
+# print("Ratio pixels pour Otsu : {}".format(comptage_pixels(im_graal, output_images[3])))

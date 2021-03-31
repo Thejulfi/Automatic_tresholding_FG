@@ -6,7 +6,6 @@ from matplotlib import pyplot as plt
 def bht(im, min_count: int = 5):
 
     hist = cv.calcHist(im,[1],None,[256],[0,256])
-    # hist = hist.astype(int)
 
     n_bins = len(hist)
     h_s = 0
@@ -14,12 +13,10 @@ def bht(im, min_count: int = 5):
     #Tant que la valeur de teinte est inférieur à "min_count", h_s + 1 -> Cela donne la valeur de teinte partie inférieur.
     
     while hist[h_s] < min_count:
-        # print(hist[h_s])
         h_s += 1
-    #h_e = 255
     h_e = n_bins - 1
     #Tant que la valeur de teinte est inférieur à "min_count", h_e - 1 -> Cela donne la valeur de teinte partie supérieur.
-    while hist[h_e] < min_count:
+    while hist[h_e] < min_count: 
         h_e -= 1
     #Création d'un tableau de dimension 1 pour stocker le contenu de l'histogramme.
     table = np.zeros((256))
@@ -52,7 +49,6 @@ def bht(im, min_count: int = 5):
         elif new_c > h_c:
             w_l += hist[h_c]
             w_r -= hist[h_c]
-
         h_c = new_c
 
     return h_c
